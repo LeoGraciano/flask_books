@@ -1,0 +1,69 @@
+{% extends "bases/base.html" %}
+{% block content %}
+<main>
+    <div class="mt-5">
+
+        <a type="button" class="btn btn-primary me-2" href="{{ url_for('index')}}"><i class="fas fa-left-long"></i>
+            Voltar</a> <a type="button" class="btn btn-success" href="{{ url_for('book.user_add_book', id=user.id)}}"><i
+                class="fas fa-plus"></i> Livros</a>
+    </div>
+    <section>
+        <h1>Detalhes do Usuário</h1>
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Usuário</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Foto</th>
+                        <th scope="col">Deletar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="">
+                        <td scope="row">{{user.id}}</td>
+                        <td scope="row">{{user.name}}</td>
+                        <td scope="row">{{user.email}}</td>
+                        <td scope="row">{{user.profile.photo}}</td>
+                        <td scope="row">
+                            <a href="{{ url_for('account.delete_user', id=user.id) }}" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section>
+        <h2>Livros:</h2>
+        <ul class="list-unstyled">
+            {% for book in user.books %}
+            <li>
+                <h5>- {{book}}</h5>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+</main>
+{% endblock content %}
+
+
+
+<ul>
+    <li>
+        {{user.id}}
+    </li>
+    <li>
+        {{user.name}}
+    </li>
+    <li>
+        {{user.email}}
+    </li>
+    <li>
+
+    </li>
+
+
+</ul>

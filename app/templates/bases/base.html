@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    {% block head %}
+    <title>
+        {% block title %}
+
+        {% endblock title %}
+    </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    {{ bootstrap.load_css() }}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% endblock head %}
+</head>
+
+<body>
+    <header>
+        {% include "componets/nav.html" %}
+    </header>
+    {% include "componets/alert.html" %}
+    <div class="container-fluid">
+        {% block content %}
+        {% endblock content %}
+    </div>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    {{ bootstrap.load_js() }}
+    {% block js %}
+
+    {% endblock js %}
+</body>
+
+</html>

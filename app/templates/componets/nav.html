@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary px-2 mb-3">
+    <a class="navbar-brand" href="{{url_for('index')}}">Logo</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" href="{{url_for('index')}}" aria-current="page">Home <span
+                        class="visually-hidden">(current)</span></a>
+            </li>
+            {% if current_user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('book.book_add')}}">Add de livros</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.logout')}}">Sair</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.login') }}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('auth.register')}}">Cadastrar-se</a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+</nav>

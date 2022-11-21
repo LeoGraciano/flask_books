@@ -1,0 +1,36 @@
+{% extends "bases/base.html" %}
+{% block content %}
+<main>
+    <h1>Lista de Nomes</h1>
+    <div class="table-responsive">
+        <table class="table table-primary">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Panel</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr class="">
+                    <td scope="row">{{user.id}}</td>
+                    <td scope="row">{{user.name}}</td>
+                    <td scope="row">
+                        <a href="{{ url_for('account.detail_user', id=user.id) }}" class="btn btn-primary btn-sm">
+                            <i class="fab fa-searchengin"></i>
+                        </a>
+
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+
+    <ul>
+    </ul>
+</main>
+{% endblock content %}
